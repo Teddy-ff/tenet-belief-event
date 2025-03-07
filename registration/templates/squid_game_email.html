@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squid Game Event Invitation</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid red;
+            box-shadow: 0 0 10px red;
+        }
+        h1 {
+            color: red;
+        }
+        .player-badge {
+            background-color: red;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .message {
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .accept-button {
+            background-color: red;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background 0.3s ease-in-out;
+            border: none;
+            cursor: pointer;
+        }
+        .accept-button:hover {
+            background-color: darkred;
+        }
+        .qr-code {
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            🔴🟢 Congratulations, Player {{ player_number }}!
+        </h1>
+        <div class="player-badge">PLAYER {{ player_number }}</div>
+        <p class="message">Dear {{ user_name }},</p>
+        <p class="message">
+            You have been selected to participate in the <strong>Squid Game Event</strong>.<br>
+            <strong>Event Date:</strong> March 13, 2025
+        </p>
+        <p class="message" style="color: #d63384;">
+            Your skills and determination will now be put to the test.
+        </p>
+        <p class="message">Click below to confirm your participation:</p>
+        <button class="accept-button">🔴 Accept Challenge</button>
+        <div class="qr-code">
+            <img src="{{ qr_code_url }}" alt="Scan to Register" width="150" height="150">
+        </div>
+        <p class="footer">Failure to accept will result in elimination.</p>
+    </div>
+</body>
+</html>

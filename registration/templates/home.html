@@ -1,0 +1,360 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TENET Belief - Events</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <link rel="icon" href="{% static 'images/tenet_beleif_logo.jpeg' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    background: url('{% static "images/background1.jpg" %}') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px;
+    border-bottom: 3px solid red;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    height: 60px;
+}
+
+.title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: red;
+    text-shadow: 0 0 15px red;
+}
+
+.event-section {
+    margin: 30px auto;
+    max-width: 90%;
+    text-align: center;
+}
+
+.event-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 90%;
+    margin: auto;
+}
+
+.event-item {
+    width: 300px; /* Consistent width */
+    height: 300px; /* Consistent height */
+    border: 3px solid red;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.event-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
+}
+
+.event-item h3 {
+    position: relative;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.event-description {
+    max-width: 90%;
+    margin-top: 10px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+
+/* MODAL STYLING */
+.event-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid red;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    z-index: 1001;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Fix poster size */
+#event-poster {
+    width: 80%; 
+    max-width: 300px; /* Ensuring it doesn't get too big */
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Centers the image */
+}
+
+.register-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background: red;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background: darkred;
+}
+
+.close-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.close-btn:hover {
+    background: darkred;
+}
+
+@media (max-width: 768px) {
+    .event-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event-item {
+        width: 90%;
+        height: 250px;
+    }
+    .title {
+        font-size: 1.5rem;
+    }
+}
+
+footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Orbitron', sans-serif;
+    border-top: 3px solid red;
+}
+
+.footer-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.developer {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.college {
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.social-links {
+    margin: 10px 0;
+}
+
+.social-links a {
+    color: red;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: white;
+    text-shadow: 0 0 10px red;
+}
+
+.contact, .copyright {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'images/college-logo.png' %}" loading="lazy" alt="College Logo" class="logo">
+            <img src="{% static 'images/tenet_logo.jpeg' %}" loading="lazy" alt="TENET Belief Logo" class="logo">
+        </div>
+        <h1 class="title">Explore Exciting Events at TENET Belief</h1>
+    </header>
+    
+    <main>
+        <section class="event-section">
+            <h2>🔥 Ongoing Event</h2>
+            <div class="event-container">
+                <div class="event-item" 
+                style="background-image: url('{% static 'images/squid_logo.jpg' %}');" 
+                data-url="{% url 'register' %}" 
+                onclick="showEvent('Squid Game', 'Race through thrilling engineering challenges!', '{% static 'images/squid_logo.jpg' %}', this.dataset.url)">
+               <h3>Squid Game</h3>
+           </div>
+           
+            </div>
+        </section>
+        
+        <section class="event-section">
+            <h2>🚀 Upcoming Events</h2>
+            <div class="event-container">
+                <div class="event-item" style="background-image: url('{% static 'images/ai_human_logo.jpg' %}');  loading="lazy" " onclick="showEvent('AI vs Human', 'Compete against AI in tricky questions!', '#')">
+                    <h3>AI vs Human</h3>
+                </div>
+                <div class="event-item" style="background-image: url('{% static 'images/reverse_logo.jpg' %}'); loading="lazy" " onclick="showEvent('Reverse X Coding', 'Participants get an output, and they must write the code to produce it. The funnier or weirder the code, the better!', '#' )">
+                    <h3>Reverse X Coding</h3>
+                </div>
+                <div class="event-item" style="background-image: url('{% static 'images/make_worst_logo.jpg' %}'); loading="lazy" " onclick="showEvent('Make Worst Logo', 'Make the worst possible logo for a famous brand. The uglier, the better!',  '#' )">
+                    <h3>Make Worst Logo</h3>
+                </div>
+                <div class="event-item" style="background-image: url('{% static 'images/mech_vs_cs.webp' %}'); loading="lazy" " onclick="showEvent('Mech vs CS', 'Mech students try to write code, and CS students try to assemble a machine!', '#')">
+                    <h3>Mech vs CS</h3>
+                </div>
+                <div class="event-item" style="background-image: url('{% static 'images/escape_college.jpg' %}'); loading="lazy" " onclick="showEvent('Escape from College 2.0', 'Race against time to solve hilarious and tricky CSE challenges to "escape" before the imaginary warden locks the gates!', '#')">
+                    <h3>Escape from College 2.0</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div id="event-modal" class="modal">
+        <img id="event-poster" src="" alt="Event Poster" style="display: none; width: 100%; max-width: 350px; border-radius: 10px; margin-bottom: 15px;  ">
+        <h3 id="event-title"></h3>
+        <p id="event-description"></p>
+        <button id="event-register" class="register-btn">Register Here</button>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+    
+
+    <script>
+        function showEvent(title, description, imageUrl, url) {
+            const modal = document.getElementById("event-modal");
+            document.getElementById("event-title").innerText = title;
+        
+            // Ensure description is visible
+            const eventDesc = document.getElementById("event-description");
+            eventDesc.innerText = description;
+            eventDesc.style.display = "block"; 
+        
+            // Set event poster image
+            const eventPoster = document.getElementById("event-poster");
+            eventPoster.src = imageUrl;
+            eventPoster.style.display = "block"; 
+        
+            // Fix register button issue
+            const registerBtn = document.getElementById("event-register");
+            if (!url || url === "#") {
+                registerBtn.innerText = "Registration will be open soon";
+                registerBtn.style.background = "gray";
+                registerBtn.style.pointerEvents = "none";
+                registerBtn.onclick = null;
+            } else {
+                registerBtn.innerText = "Register Here";
+                registerBtn.style.background = "red";
+                registerBtn.style.pointerEvents = "auto";
+                registerBtn.onclick = function() {
+                    window.open(url, "_blank");
+                };
+            }
+        
+            // Show modal
+            modal.classList.add("show");
+        }
+        
+        
+        
+        
+        
+    </script>
+    
+    
+    </body>
+    </html>
+    
+    
+      
+    <footer>
+        <div class="footer-container">
+            <p class="developer">Developed by <strong>Idrees</strong></p>
+            <p class="college">Department of Computer Science and Business System, <br> 
+                Mohamed Sathak A.J College of Engineering</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/tenet_belief?igsh=MXFpbWNjMDBuNG05cA==" target="_blank">Instagram</a> |
+                <a href="mailto:tenetbelief@msajce-edu.in">Email</a>
+            </div>
+    
+            <p class="contact">📞 Contact: +91 98765 43210</p>
+            <p class="copyright">&copy; 2025 TENET Belief. All Rights Reserved.</p>
+        </div>
+    </footer>
+      
+</body>
+</html>

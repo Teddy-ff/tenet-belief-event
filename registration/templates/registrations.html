@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Registrations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #007bff;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .print-btn {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Registered Participants</h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Department</th>
+            <th>College</th>
+            <th>Phone</th>
+            <th>Email</th>
+        </tr>
+        {% for participant in participants %}
+        <tr>
+            <td>{{ participant.name }}</td>
+            <td>{{ participant.year }}</td>
+            <td>{{ participant.department }}</td>
+            <td>{{ participant.college }}</td>
+            <td>{{ participant.phone }}</td>
+            <td>{{ participant.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <button class="print-btn" onclick="window.print()">Print List</button>  <!-- Print Button -->
+</div>
+
+</body>
+</html>

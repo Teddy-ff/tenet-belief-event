@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+            background: black;
+            padding: 50px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 15px red;
+        }
+        h1 {
+            color: red;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        .button {
+            background: red;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: inline-block;
+            margin: 10px;
+            transition: background 0.3s ease-in-out;
+        }
+        .button:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Registration Successful!</h1>
+        <p>Thank you for registering for the Squid Game event.</p>
+        <p>The event will take place on <strong>March 13, 2025</strong>. Stay tuned for updates!</p>
+        <p>For more details, contact: <strong>tenetbelief@msajce.com</strong></p>
+        <a href="/" class="button">🏠 Back to Home</a>
+        <a href="https://chat.whatsapp.com/L6tosuQC95lKfTlaUXGqgn" class="button" target="_blank">📢 Join WhatsApp Group</a>
+    </div>
+</body>
+</html>
