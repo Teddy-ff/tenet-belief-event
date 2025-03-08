@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -78,13 +79,24 @@ WSGI_APPLICATION = 'squidgame_event.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'squidgame_event',  # Database name
-        'USER': 'root',           # Your MySQL username
-         # Your MySQL password
-        'HOST': 'localhost',      # Database host (default: localhost)
-        'PORT': '3306',           # MySQL default port
+        'NAME': 'Idrees07$squidgame_event',
+        'USER': 'Idrees07',
+        'PASSWORD': 'Django@events',
+        'HOST': 'Idrees07.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'unix_socket': None,  # 🔹 Add this line to force TCP
+        }
     }
 }
+
+
+
+
+
+
+
 
 
 
