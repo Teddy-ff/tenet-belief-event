@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import pymysql
+pymysql.install_as_MySQLdb()
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -79,17 +82,20 @@ WSGI_APPLICATION = 'squidgame_event.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Idrees07$squidgame_event',
-        'USER': 'Idrees07',
+        'NAME': 'tenetbeliefmsajc$squidgame_event',
+        'USER': 'tenetbeliefmsajc',
         'PASSWORD': 'Django@events',
-        'HOST': 'Idrees07.mysql.pythonanywhere-services.com',
+        'HOST': 'tenetbeliefmsajce.mysql.pythonanywhere-services.com',
         'PORT': '3306',
         'OPTIONS': {
+            'charset': 'utf8mb4',
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'unix_socket': None,  # 🔹 Add this line to force TCP
-        }
+            'unix_socket': None,  # Force Django to use TCP
+        },
     }
 }
+
+
 
 
 
