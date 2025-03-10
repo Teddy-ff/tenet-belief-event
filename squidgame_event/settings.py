@@ -81,17 +81,10 @@ WSGI_APPLICATION = 'squidgame_event.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-
-        'NAME': 'tenetbeliefmsajc$squidgame_event',
-        'USER': 'tenetbeliefmsajc',
-        'PASSWORD': 'Django@events',
-        'HOST': 'tenetbeliefmsajce.mysql.pythonanywhere-services.com',
-        'PORT': '3306',
-
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
+        'NAME': os.getenv('DB_NAME', 'tenetbeliefmsajc$squidgame_event'),
+        'USER': os.getenv('DB_USER', 'tenetbeliefmsajc'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'Django@events'),
+        'HOST': os.getenv('DB_HOST', 'tenetbeliefmsajce.mysql.pythonanywhere-services.com'),  # Replace with actual host if needed
         'PORT': os.getenv('DB_PORT', '3306'),
         'OPTIONS': {
             'charset': 'utf8mb4',
