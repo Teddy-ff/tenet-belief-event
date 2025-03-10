@@ -65,23 +65,23 @@ header {
 }
 
 .event-item {
-    width: 90%;  /* Ensure it doesn't overflow */
-    height: 250px;
-    border: 3px solid red;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-}
+            width: 300px; /* Consistent width for all cards */
+            height: 300px; /* Consistent height */
+            border: 3px solid red;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+        }
+
 
 .event-item:hover {
     transform: scale(1.05);
@@ -261,7 +261,7 @@ footer {
 <body>
     <header>
         <div class="logo-container">
-            <img src="{% static 'images/college-logo.png' %}" loading="lazy" alt="College Logo" class="logo">
+            <img src="{% static 'images/college_logo.jpg' %}" loading="lazy" alt="College Logo" class="logo">
             <img src="{% static 'images/tenet_logo.jpeg' %}" loading="lazy" alt="TENET Belief Logo" class="logo">
         </div>
         <h1 class="title">Explore Exciting Events at TENET Belief</h1>
