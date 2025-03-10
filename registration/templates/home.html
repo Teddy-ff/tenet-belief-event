@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script src="{% static 'js/script.js' %}" defer></script>
     <link rel="icon" href="{% static 'images/tenet_beleif_logo.jpeg' %}">
-    <style>
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 body {
@@ -65,8 +65,8 @@ header {
 }
 
 .event-item {
-    width: 300px; /* Consistent width */
-    height: 300px; /* Consistent height */
+    width: 90%;  /* Ensure it doesn't overflow */
+    height: 250px;
     border: 3px solid red;
     padding: 20px;
     border-radius: 15px;
@@ -125,7 +125,7 @@ header {
     border: 3px solid red;
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
     width: 90%;
-    max-width: 500px;
+    max-width: 600px;
     text-align: center;
     z-index: 1001;
     opacity: 0;
@@ -178,7 +178,7 @@ header {
     background: darkred;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .event-container {
         flex-direction: column;
         align-items: center;
@@ -189,9 +189,18 @@ header {
         height: 250px;
     }
     .title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 }
+@media (max-width: 600px) {
+    .footer-container {
+        padding: 10px;
+    }
+    .developer, .college, .contact {
+        font-size: 0.9rem;
+    }
+}
+
 
 footer {
     background: #000;
@@ -257,9 +266,15 @@ footer {
             <h2>🔥 Ongoing Event</h2>
             <div class="event-container">
                 <div class="event-item"
+<<<<<<< HEAD
                 style="background-image: url('{% static 'images/squid_logo.jpg' %}');"
                 data-url="{% url 'register' %}"
                 onclick="showEvent('Squid Game', 'Race through thrilling engineering challenges!', '{% static 'images/squid_logo.jpg' %}', this.dataset.url)">
+=======
+                style="background-image: url('{% static 'images/squid_logo.jpg' %}');" loading="lazy"
+                data-url="{% url 'register' %}"
+                onclick="showEvent('Squid Game', 'Race through thrilling engineering challenges!', '{% static 'images/squidgame_poster.png' %}', this.dataset.url)">
+>>>>>>> cc3ccbc1aaff29dc262e5cc180655465ef704b46
                <h3>Squid Game</h3>
            </div>
 
@@ -269,19 +284,20 @@ footer {
         <section class="event-section">
             <h2>🚀 Upcoming Events</h2>
             <div class="event-container">
-                <div class="event-item" style="background-image: url('{% static 'images/ai_human_logo.jpg' %}');  loading="lazy" " onclick="showEvent('AI vs Human', 'Compete against AI in tricky questions!', '#')">
+                <div class="event-item" 
+                style="background-image: url('{% static 'images/ai_human_logo.jpg' %}');"  loading="lazy"  onclick="showEvent('AI vs Human', 'Compete against AI in tricky questions!', '#')">
                     <h3>AI vs Human</h3>
                 </div>
-                <div class="event-item" style="background-image: url('{% static 'images/reverse_logo.jpg' %}'); loading="lazy" " onclick="showEvent('Reverse X Coding', 'Participants get an output, and they must write the code to produce it. The funnier or weirder the code, the better!', '#' )">
+                <div class="event-item" style="background-image: url('{% static 'images/reverse_logo.jpg' %}');" loading="lazy"  onclick="showEvent('Reverse X Coding', 'Participants get an output, and they must write the code to produce it. The funnier or weirder the code, the better!', '#' )">
                     <h3>Reverse X Coding</h3>
                 </div>
-                <div class="event-item" style="background-image: url('{% static 'images/make_worst_logo.jpg' %}'); loading="lazy" " onclick="showEvent('Make Worst Logo', 'Make the worst possible logo for a famous brand. The uglier, the better!',  '#' )">
+                <div class="event-item" style="background-image: url('{% static 'images/make_worst_logo.jpg' %}');" loading="lazy"  onclick="showEvent('Make Worst Logo', 'Make the worst possible logo for a famous brand. The uglier, the better!',  '#' )">
                     <h3>Make Worst Logo</h3>
                 </div>
-                <div class="event-item" style="background-image: url('{% static 'images/mech_vs_cs.webp' %}'); loading="lazy" " onclick="showEvent('Mech vs CS', 'Mech students try to write code, and CS students try to assemble a machine!', '#')">
+                <div class="event-item" style="background-image: url('{% static 'images/mech_vs_cs.webp' %}');" loading="lazy"  onclick="showEvent('Mech vs CS', 'Mech students try to write code, and CS students try to assemble a machine!', '#')">
                     <h3>Mech vs CS</h3>
                 </div>
-                <div class="event-item" style="background-image: url('{% static 'images/escape_college.jpg' %}'); loading="lazy" " onclick="showEvent('Escape from College 2.0', 'Race against time to solve hilarious and tricky CSE challenges to "escape" before the imaginary warden locks the gates!', '#')">
+                <div class="event-item" style="background-image: url('{% static 'images/escape_college.jpg' %}');" loading="lazy"  onclick="showEvent('Escape from College 2.0', 'Race against time to solve hilarious and tricky CSE challenges to "escape" before the imaginary warden locks the gates!', '#')">
                     <h3>Escape from College 2.0</h3>
                 </div>
             </div>
@@ -331,7 +347,14 @@ footer {
             // Show modal
             modal.classList.add("show");
         }
+<<<<<<< HEAD
 
+=======
+        function closeModal() {
+            document.getElementById("event-modal").classList.remove("show");
+        }
+        
+>>>>>>> cc3ccbc1aaff29dc262e5cc180655465ef704b46
 
 
 
