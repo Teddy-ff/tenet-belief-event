@@ -139,7 +139,7 @@ header {
 }
 
 /* Fix poster size */
-#event-poster {
+.event-poster {
     width: 80%;
     max-width: 300px; /* Ensuring it doesn't get too big */
     aspect-ratio: 4 / 5;
@@ -163,6 +163,12 @@ header {
 .register-btn:hover {
     background: darkred;
 }
+.register-btn.disabled {
+    background: gray;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
 
 .close-btn {
     background: red;
@@ -266,19 +272,12 @@ footer {
             <h2>🔥 Ongoing Event</h2>
             <div class="event-container">
                 <div class="event-item"
-<<<<<<< HEAD
                 style="background-image: url('{% static 'images/squid_logo.jpg' %}');"
                 data-url="{% url 'register' %}"
-                onclick="showEvent('Squid Game', 'Race through thrilling engineering challenges!', '{% static 'images/squid_logo.jpg' %}', this.dataset.url)">
-=======
-                style="background-image: url('{% static 'images/squid_logo.jpg' %}');" loading="lazy"
-                data-url="{% url 'register' %}"
                 onclick="showEvent('Squid Game', 'Race through thrilling engineering challenges!', '{% static 'images/squidgame_poster.png' %}', this.dataset.url)">
->>>>>>> cc3ccbc1aaff29dc262e5cc180655465ef704b46
-               <h3>Squid Game</h3>
-           </div>
+                <h3>Squid Game</h3>
+                </div>
 
-            </div>
         </section>
 
         <section class="event-section">
@@ -315,46 +314,40 @@ footer {
 
     <script>
         function showEvent(title, description, imageUrl, url) {
-            const modal = document.getElementById("event-modal");
-            document.getElementById("event-title").innerText = title;
+        const modal = document.getElementById("event-modal");
+        document.getElementById("event-title").innerText = title;
+        document.getElementById("event-description").innerText = description;
 
-            // Ensure description is visible
-            const eventDesc = document.getElementById("event-description");
-            eventDesc.innerText = description;
-            eventDesc.style.display = "block";
+        // Set event poster
+        const eventPoster = document.getElementById("event-poster");
+        eventPoster.src = imageUrl;
+        eventPoster.style.display = "block";
 
-            // Set event poster image
-            const eventPoster = document.getElementById("event-poster");
-            eventPoster.src = imageUrl;
-            eventPoster.style.display = "block";
-
-            // Fix register button issue
-            const registerBtn = document.getElementById("event-register");
-            if (!url || url === "#") {
-                registerBtn.innerText = "Registration will be open soon";
-                registerBtn.style.background = "gray";
-                registerBtn.style.pointerEvents = "none";
-                registerBtn.onclick = null;
-            } else {
-                registerBtn.innerText = "Register Here";
-                registerBtn.style.background = "red";
-                registerBtn.style.pointerEvents = "auto";
-                registerBtn.onclick = function() {
-                    window.open(url, "_blank");
-                };
-            }
-
-            // Show modal
-            modal.classList.add("show");
+        // Set register button
+        const registerBtn = document.getElementById("event-register");
+        if (!url || url === "#") {
+            registerBtn.innerText = "Registration will be open soon";
+            registerBtn.classList.add("disabled");
+            registerBtn.onclick = null;
+        } else {
+            registerBtn.innerText = "Register Here";
+            registerBtn.classList.remove("disabled");
+            registerBtn.onclick = function() {
+            window.open(url, "_blank");
+            };
         }
-<<<<<<< HEAD
 
-=======
+        modal.classList.add("show");
+    }
+
+
+
+
         function closeModal() {
             document.getElementById("event-modal").classList.remove("show");
         }
         
->>>>>>> cc3ccbc1aaff29dc262e5cc180655465ef704b46
+
 
 
 
