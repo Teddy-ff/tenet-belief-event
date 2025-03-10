@@ -14,8 +14,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY: Load sensitive data from environment variables
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
-
-<<<<<<< HEAD
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -26,10 +24,9 @@ SECRET_KEY = 'django-insecure--hnq=@&h!h*&n5qld(nll5@_lqr5voeg7)!(noa$0(@79a6#1+
 DEBUG = True
 
 ALLOWED_HOSTS = ['tenetbeliefmsajce.pythonanywhere.com']
-=======
+
 # SECURITY: Turn off Debug mode in production
 DEBUG = False  # Change to True only in local development
->>>>>>> cc3ccbc1aaff29dc262e5cc180655465ef704b46
 
 ALLOWED_HOSTS = ['tenetbeliefmsajce.pythonanywhere.com']
 
@@ -46,11 +43,11 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-<<<<<<< HEAD
+
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this
-=======
+
     'whitenoise.middleware.WhiteNoiseMiddleware',  # For serving static files efficiently
->>>>>>> cc3ccbc1aaff29dc262e5cc180655465ef704b46
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,19 +81,18 @@ WSGI_APPLICATION = 'squidgame_event.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-<<<<<<< HEAD
+
         'NAME': 'tenetbeliefmsajc$squidgame_event',
         'USER': 'tenetbeliefmsajc',
         'PASSWORD': 'Django@events',
         'HOST': 'tenetbeliefmsajce.mysql.pythonanywhere-services.com',
         'PORT': '3306',
-=======
+
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST'),
         'PORT': os.getenv('DB_PORT', '3306'),
->>>>>>> cc3ccbc1aaff29dc262e5cc180655465ef704b46
         'OPTIONS': {
             'charset': 'utf8mb4',
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -105,13 +101,13 @@ DATABASES = {
     }
 }
 
-<<<<<<< HEAD
 
 
 
-=======
+
+
 # Email settings (for notifications)
->>>>>>> cc3ccbc1aaff29dc262e5cc180655465ef704b46
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -136,7 +132,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-<<<<<<< HEAD
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -144,10 +140,10 @@ USE_TZ = True
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
-=======
+
 # Static files
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
->>>>>>> cc3ccbc1aaff29dc262e5cc180655465ef704b46
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # For production
