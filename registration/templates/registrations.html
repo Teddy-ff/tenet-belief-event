@@ -52,7 +52,8 @@
 <div class="container">
     <h1>Registered Participants</h1>
 
-    <table>
+    <table border="1">
+    <thead>
         <tr>
             <th>Name</th>
             <th>Year</th>
@@ -61,17 +62,27 @@
             <th>Phone</th>
             <th>Email</th>
         </tr>
-        {% for participant in participants %}
-        <tr>
-            <td>{{ participant.name }}</td>
-            <td>{{ participant.year }}</td>
-            <td>{{ participant.department }}</td>
-            <td>{{ participant.college }}</td>
-            <td>{{ participant.phone }}</td>
-            <td>{{ participant.email }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    </thead>
+    <tbody>
+        {% if participants %}
+            {% for participant in participants %}
+                <tr>
+                    <td>{{ participant.name }}</td>
+                    <td>{{ participant.year }}</td>
+                    <td>{{ participant.department }}</td>
+                    <td>{{ participant.college }}</td>
+                    <td>{{ participant.phone }}</td>
+                    <td>{{ participant.email }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="6">No participants found.</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+
 
     <button class="print-btn" onclick="window.print()">Print List</button>  <!-- Print Button -->
 </div>
