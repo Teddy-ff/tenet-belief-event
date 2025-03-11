@@ -52,6 +52,7 @@ def success(request):
 
 def registrations_list(request):
     participants = Registration.objects.all()  # Fetch all records
+    print(participants)
     return render(request, "registrations.html", {"participants": participants})
 
 def home(request):
