@@ -40,14 +40,14 @@
             width: fit-content;
             margin: 20px auto; /* Centering */
         }
-        
+
         .header img {
             max-width: 380px; /* Adjust as needed */
             height: auto;
             filter: drop-shadow(0px 0px 8px red); /* Red glow effect */
             border-radius: 10px; /* Slightly rounded corners */
         }
-        
+
         .container {
             position: relative;
             width: 90%;
@@ -60,7 +60,7 @@
             margin-top: 5vh;
             animation: fadeIn 2s ease-in forwards;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
@@ -123,8 +123,8 @@
             audio.play();
         }, { once: true });  // Ensures it only runs once
     </script>
-    
-    
+
+
     <div class="video-background">
         <video autoplay loop muted>
             <source src="{% static 'video/squid-game-background.mp4' %}" type="video/mp4">
@@ -155,17 +155,17 @@
     <script>
         document.getElementById("registration-form").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent form submission until validation
-    
+
             let name = document.getElementsByName("name")[0].value.trim();
             let year = document.getElementsByName("year")[0].value.trim();
             let department = document.getElementsByName("department")[0].value.trim();
             let college = document.getElementsByName("college")[0].value.trim();
             let phone = document.getElementsByName("phone")[0].value.trim();
             let email = document.getElementsByName("email")[0].value.trim();
-    
+
             let phonePattern = /^[0-9]{10}$/;
             let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    
+
             if (name === "" || year === "" || department === "" || college === "" || phone === "" || email === "") {
                 alert("⚠️ All fields are required!");
                 return;
@@ -178,43 +178,43 @@
                 alert("⚠️ Enter a valid email address!");
                 return;
             }
-    
+
             // If validation passes, submit the form
             alert("✅ Registration Successful!");
             this.submit();
         });
     </script>
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const countdownElement = document.getElementById("countdown");
             const registerBtn = document.getElementById("register-btn");
-    
-            const eventDeadline = new Date("2025-03-15T23:59:59").getTime();
-    
+
+            const eventDeadline = new Date("2025-03-12T23:59:59").getTime();
+
             function updateCountdown() {
                 const now = new Date().getTime();
                 const timeLeft = eventDeadline - now;
-    
+
                 if (timeLeft <= 0) {
                     countdownElement.innerHTML = "❌ Registration Closed";
                     registerBtn.disabled = true;
                     registerBtn.style.background = "gray";
                     return;
                 }
-    
+
                 const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
                 const hours = String(Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
                 const minutes = String(Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
                 const seconds = String(Math.floor((timeLeft % (1000 * 60)) / 1000)).padStart(2, '0');
-    
+
                 countdownElement.innerHTML = `⏳ Registration Closes In: ${days}d ${hours}h ${minutes}m ${seconds}s`;
             }
-    
+
             updateCountdown(); // Run immediately
             setInterval(updateCountdown, 1000); // Update every second
         });
     </script>
-    
+
 </body>
 </html>
